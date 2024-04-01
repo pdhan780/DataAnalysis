@@ -1,8 +1,5 @@
 import pandas as pd
 
-# Load the data
-student_data = pd.read_csv('Student_Counceling_Information.csv')
-
 def checkStudent(student_data):
     # Check for missing values in Department_Admission
     missing_values_admission = student_data[student_data['Department_Admission'].isnull()]

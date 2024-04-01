@@ -3,8 +3,6 @@
 import pandas as pd
 
 # Load the data
-dep_data = pd.read_csv('Department_Information.csv')
-
 def checkDepartment(dep_data):
     missing_values = dep_data[dep_data.isnull().any(axis=1)]
     # Convert 'DOE' column to string and replace NaN values with empty strings

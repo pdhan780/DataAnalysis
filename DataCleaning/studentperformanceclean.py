@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Load the data
-performance_data = pd.read_csv('Student_Performance_Data.csv')
+performance_data = pd.read_csv('../Student_Performance_Data.csv')
 
 def checkPerformance(performance_data):
     # Check for missing values in all columns
