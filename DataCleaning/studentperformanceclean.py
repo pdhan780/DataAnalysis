@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
 # Load the data
 data = pd.read_csv('Student_Performance_Data.csv')
@@ -41,6 +42,9 @@ clean_data = data.drop(index=missing_values.index)
 clean_data = clean_data.drop(index=invalid_marks.index)
 clean_data = clean_data.drop(index=invalid_hours.index)
 clean_data = clean_data.drop(index=multiple_marks.index)
+
+clean_data.to_csv('cleaned_data.csv')
+print(clean_data.describe())
 
 # If no exceptions found, print a success message
 if missing_values.empty and invalid_marks.empty and invalid_hours.empty and multiple_marks.empty:

@@ -7,7 +7,8 @@ data = pd.read_csv('Department_Information.csv')
 
 # Convert 'DOE' column to string and replace NaN values with empty strings
 data['DOE'] = data['DOE'].astype(str)
-
+data['DOE'].replace('nan', '', inplace=True)  # Replace string 'nan' with empty string
+missing_values = data[data.isnull().any(axis=1)]
 # Check for duplicates in Department_ID and Department_Name
 duplicate_ids = data[data.duplicated('Department_ID', keep=False)]
 duplicate_names = data[data.duplicated('Department_Name', keep=False)]
@@ -15,8 +16,6 @@ duplicate_names = data[data.duplicated('Department_Name', keep=False)]
 # Check for valid years in DOE
 invalid_doe = data[~data['DOE'].str.contains(r'\d{1,2}/\d{1,2}/19\d{2}|20\d{2}')]
 
-# Check for missing values
-missing_values = data[data.isnull().any(axis=1)]
 
 # Report exceptions
 if not duplicate_ids.empty:
